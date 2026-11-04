@@ -1,0 +1,12 @@
+{
+  "name": "md-gdocs-sync",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Keep Google Docs mirrors of a repo's markdown live: a post-commit hook updates each Doc in place (stable links) and never blocks a commit.",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/local-auth": "^3.0.1",
+    "googleapis": "^144.0.0"
+  }
+}

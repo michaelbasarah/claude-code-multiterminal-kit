@@ -1,0 +1,46 @@
+{
+  "targets": {
+    "prod": {
+      "ssh": "deploy@prod.example.com",
+      "domain": "app.example.com",
+      "checkout": "/srv/app",
+      "appDir": "/srv/app/app",
+      "compose": "docker compose",
+      "service": "app",
+      "envFile": ".env",
+      "secretsDir": "secrets",
+      "tracksDefaultBranch": true,
+      "defaultBranch": "main"
+    },
+    "staging": {
+      "ssh": "deploy@prod.example.com",
+      "domain": "staging.example.com",
+      "checkout": "/srv/app-staging",
+      "appDir": "/srv/app-staging/app",
+      "compose": "docker compose -f docker-compose.staging.yml",
+      "service": "staging-app",
+      "envFile": ".env.staging",
+      "tracksDefaultBranch": false
+    }
+  },
+  "edge": {
+    "path": "/login",
+    "healthPath": "/health",
+    "requiredHeaders": {
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "content-security-policy": "frame-ancestors 'none'",
+      "referrer-policy": "strict-origin-when-cross-origin"
+    },
+    "forbiddenHeaders": ["x-powered-by"]
+  },
+  "flags": {
+    "eventSuffix": "_sweep",
+    "items": [
+      { "name": "reminder_sweep" },
+      { "name": "cleanup_sweep", "envKey": "CLEANUP_SWEEP_MINUTES" },
+      { "name": "digest_sweep", "envKey": "DIGEST_SWEEP_MINUTES" }
+    ]
+  },
+  "web": { "url": "https://www.example.com/" }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "claude-code-multiterminal-kit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Run several Claude Code terminals in parallel without collisions: worktree-per-effort skills, an advisor/builder model, a memory-checkpoint hook, a daily drift report, an effect checker and a markdown-to-Google-Docs sync hook.",
+  "license": "MIT",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\"",
+    "drift": "node tools/drift-check.mjs --stdout",
+    "verify-effects": "node verify-effects/verify-effects.mjs"
+  }
+}

@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+effects.config.json
+doc-sync-map.json
+.doc-sync.log
+*.log
+oauth-client*.json
+token.json
+auth-url.txt
+*.token

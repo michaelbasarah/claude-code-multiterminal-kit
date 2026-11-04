@@ -1,0 +1,23 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Syntax check
+        run: |
+          for f in lib/*.mjs hooks/*.mjs tools/*.mjs verify-effects/*.mjs md-gdocs-sync/map.mjs md-gdocs-sync/config.mjs md-gdocs-sync/sync-doc.mjs; do node --check "$f"; done
+          sh -n install.sh md-gdocs-sync/install-hook.sh
+      - name: Tests (offline, no dependencies to install)
+        run: npm test

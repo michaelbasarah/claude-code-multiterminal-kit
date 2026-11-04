@@ -1,0 +1,8 @@
+{
+  "_comment": "Markdown -> Google Doc live-mirror map. Copy to doc-sync-map.json in the root of the repo being committed (or point DOC_SYNC_MAP at it). The repo .md is canonical; the Docs are point-in-time mirrors that refresh on every commit that touches them.",
+  "folderId": "YOUR_DRIVE_FOLDER_ID",
+  "docs": [
+    { "md": "docs/HANDBOOK.md", "title": "Team Handbook" },
+    { "md": "docs/ONBOARDING.md", "title": "Onboarding Runbook" }
+  ]
+}
