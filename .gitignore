@@ -10,3 +10,24 @@ oauth-client*.json
 token.json
 auth-url.txt
 *.token
+
+# Secrets: never commit
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials*.json
+service-account*.json
+cookies*.txt
+*.cookies
+# Local environments, caches and OS junk
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+~$*
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
